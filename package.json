@@ -1,0 +1,18 @@
+{
+  "name": "atom-auto-uglify",
+  "main": "./lib/auto-uglify",
+  "version": "0.0.0",
+  "description": "Minifies a Javascript file on save with UglifyJS",
+  "activationEvents": [
+    "uglify:compile",
+    "core:save"
+  ],
+  "repository": "https://github.com/Metric/Atom-Auto-Uglify",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "uglify-js": "^2.4.0"
+  }
+}
