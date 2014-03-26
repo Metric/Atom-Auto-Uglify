@@ -1,7 +1,7 @@
 {
   "name": "atom-auto-uglify",
   "main": "./lib/auto-uglify",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Minifies a Javascript file on save with UglifyJS",
   "activationEvents": [
     "uglify:compile",
