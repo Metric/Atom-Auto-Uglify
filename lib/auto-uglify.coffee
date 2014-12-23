@@ -7,7 +7,7 @@ compile = () ->
   if activeEditor
     filePath = activeEditor.getPath()
 
-    if filePath.indexOf('.js') == filePath.length - 3 and filePath.indexOf('.min.js') == -1
+    if filePath and filePath.indexOf('.js') == filePath.length - 3 and filePath.indexOf('.min.js') == -1
       text = activeEditor.getText()
       result = UglifyJS.minify(text, {fromString: true});
 
