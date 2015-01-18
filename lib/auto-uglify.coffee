@@ -2,7 +2,7 @@ UglifyJS = require 'uglify-js'
 fs = require 'fs'
 
 compile = () ->
-  activeEditor = atom.workspace.getActiveEditor()
+  activeEditor = atom.workspace.getActiveTextEditor()
 
   if activeEditor
     filePath = activeEditor.getPath()
@@ -20,8 +20,13 @@ compile = () ->
 
 module.exports =
   activate: (state) =>
-    atom.workspaceView.command "uglify:compile", => compile()
-    atom.workspaceView.command "core:save", => compile()
+    atom.commands.add "atom-workspace",
+      "uglify:compile": (event) =>
+        compile()
+
+    atom.commands.add "atom-workspace",
+      "core:save": (event) =>
+        compile()
 
   deactivate: ->
 
