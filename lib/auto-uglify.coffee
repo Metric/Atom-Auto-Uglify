@@ -1,5 +1,8 @@
 UglifyJS = require 'uglify-js'
+UglifyES = require 'uglify-es'
 fs = require 'fs'
+
+es6Reg = /(let )|(const )|(=>)|('use strict';?)|("use strict";?)/gi;
 
 compile = () ->
   activeEditor = atom.workspace.getActiveTextEditor()
@@ -9,7 +12,12 @@ compile = () ->
 
     if filePath and filePath.indexOf('.js') == filePath.length - 3 and filePath.indexOf('.min.js') == -1
       text = activeEditor.getText()
-      result = UglifyJS.minify(text, {fromString: true});
+      result = text
+      
+      if text.match(es6Reg)
+        result = UglifyES.minify(text)
+      else
+        result = UglifyJS.minify(text, {fromString: true})
 
 
       filenamePath = filePath.replace('.js', '.min.js')
