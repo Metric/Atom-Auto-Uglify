@@ -2,7 +2,7 @@ UglifyJS = require 'uglify-js'
 UglifyES = require 'uglify-es'
 fs = require 'fs'
 
-es6Reg = /(let )|(const )|(=>)|('use strict';?)|("use strict";?)/gi;
+es6Reg = /(let ?)|(const ?)|(=>)|('use strict';?)|("use strict";?)|(import ?)|(export ?)/gi;
 
 compile = () ->
   activeEditor = atom.workspace.getActiveTextEditor()
